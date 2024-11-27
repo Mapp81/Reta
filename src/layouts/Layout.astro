@@ -1,0 +1,46 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+import '@fontsource/roboto';
+import Header from '../components/Header.astro';
+import { baseService } from 'astro/assets';
+import Hero from '../components/Hero.astro';
+import Footer2 from '../components/Footer2.astro';
+import umbrella from '../assets/umbrella.svg';
+import logoreta3 from '../assets/logoreta3.png';
+import logoreta4 from '../assets/logoreta4.png';
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+  		<meta name="description" content="Astro description" />
+  		<meta name="viewport" content="width=device-width" />
+  	<!-- Favicon SVG -->
+ 	 	<link rel="icon" type="image/png" href={logoreta4.src} />
+  		<meta name="generator" content={Astro.generator} />
+  		<title>{title}</title>
+	</head>
+	<body>
+		<Header/>
+		
+		<slot />
+	</body>
+	<footer><Footer2/></footer>
+</html>
+<style is:global>
+	:root {
+		--base: #E3E3E3;
+		--gris: #767676;
+		--primario: #262221;
+		--visitado: #E33F00;
+		margin: 2px;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+	
+
+</style>

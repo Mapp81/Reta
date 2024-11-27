@@ -1,0 +1,70 @@
+<section>
+    <div class="ad-container">
+      <div class="ad-space">
+        <!-- Código del anuncio 1 aquí -->
+        <p>Anuncio 1</p>
+      </div>
+      <div class="ad-space">
+        <!-- Código del anuncio 2 aquí -->
+        <p>Anuncio 2</p>
+      </div>
+      <div class="ad-space">
+        <!-- Código del anuncio 3 aquí -->
+        <p>Anuncio 3</p>
+      </div>
+    </div>
+</section>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.ad-container {
+  display: flex;
+  gap: 16px; /* Espaciado entre los anuncios */
+  padding: 16px;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que se adapten en pantallas pequeñas */
+}
+
+.ad-space {
+  flex: 1 1 calc(33.33% - 16px); /* Toma un tercio del ancho con espacio */
+  max-width: 300px; /* Ancho máximo para limitar el tamaño */
+  aspect-ratio: 1; /* Hace que los contenedores sean cuadrados */
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .ad-space {
+    flex: 1 1 calc(50% - 16px); /* Cambia a dos columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 480px) {
+  .ad-space {
+    flex: 1 1 100%; /* Una columna en pantallas pequeñas */
+  }
+}
+
+</style>

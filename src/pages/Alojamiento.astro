@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer2.astro';
+import { Image } from "astro:assets";
+import contactate from "../assets/contactate.png";
+import logoreta4 from '../assets/logoreta4.png';
+
+
+const items = [
+  {
+    title: "Cabaña Las Lomitas",
+    body: "Este acogedor alojamiento está a solo pasos de la playa, ofreciendo tranquilidad absoluta. Con habitaciones luminosas y un ambiente relajado, es ideal para quienes buscan desconectar mientras se encuentran a un corto paseo del centro.",
+    image: contactate,
+    imgAlt: "Cabaña Las Lomitas"
+  },
+  {title: "Casa Costa Serena",
+    body: "Un refugio privado rodeado de naturaleza, con acceso directo a la playa. Costa Serena está diseñada para quienes buscan desconectarse sin alejarse del centro. La combinación perfecta de tranquilidad y proximidad al pueblo.",
+    image: contactate,
+    imgAlt: "Casa Costa Serena"
+  },
+  {title: "Casa Refugio de Mar",
+    body: "Rodeada de vegetación autóctona y a solo 5 minutos caminando del mar, esta casa combina la tranquilidad del entorno natural con la comodidad de estar cerca del centro del pueblo. Sus espacios abiertos y terrazas son ideales para disfrutar del aire libre.",
+    image: contactate,
+    imgAlt: "Cabaña Las Lomitas"
+  },
+  {
+    title: "Casa Costa Serena",
+    body: "Situado a orillas del mar, Costa Serena combina serenidad y comodidad. Con vistas panorámicas al océano, ofrece un retiro pacífico sin estar lejos del centro del pueblo.",
+    image: contactate,
+    imgAlt: "Casa Costa Serena"
+  },
+  {
+    title: "Cabañas Rincón del sol",
+    body: "A pocos metros del mar, Rincón del Sol es un alojamiento íntimo que invita a relajarse. Con el centro a poca distancia, puedes disfrutar de la calma del entorno sin perder el acceso a servicios y tiendas.",
+    image: contactate,
+    imgAlt: "Cabañas Rincón del sol"
+  },
+  {
+    title: "Cabaña Playa Azul",
+    body: "Rodeado de dunas y el sonido del mar, Playa Azul es un refugio tranquilo para los amantes de la naturaleza. Su proximidad al centro te permite disfrutar de lo mejor de ambos mundos.",
+    image: contactate,
+    imgAlt: "Cabaña Playa Azul"
+  }
+];
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href={logoreta4.src} />
+
+</head>
+<Layout title="Alojamientos">
+    <main>
+        <div class="grid-container">
+            <!-- Generar las cards dinámicamente -->
+            {items.map((item) => (
+                <div class="card">
+                    <img src={item.image.src} alt={item.imgAlt} />
+                    <h2>{item.title}</h2>
+                    <p>{item.body}</p>
+                </div>
+            ))}
+        </div>
+    </main>
+</Layout>
+</body>
+</html>
+
+<style>
+
+* {
+    font-family: "roboto", sans-serif;
+    color: var(--primario);
+    box-sizing: border-box;
+    }
+
+body {
+     width: 100vw;
+    height: 100%;
+    }
+
+main {
+    width: 100vw;
+    min-height: 70vh; /* Se asegura de que el contenido ocupe al menos la altura de la ventana */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    padding: 8px;
+}
+
+
+.grid-container {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8vw;
+  padding: 0;
+  margin-top: 24px;
+  width: 100vw;
+  margin-bottom: 24px;
+
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente el contenido */
+  justify-content: center; /* Centra verticalmente el contenido */
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 8px var(--base); /* Sombra suave */
+  transition: transform 0.3s ease;
+
+}
+
+img {
+height: 400px; /* Ajusta la altura según tu diseño */
+  width: 100%;
+  border-radius: 8px;
+  max-width: 400px; /* Ajusta el ancho máximo de la imagen */
+  object-position: center;
+
+}
+
+
+h2{
+   display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    text-align: left; 
+    font-weight: 300;
+    font-size: 32px; /* Tamaño del texto responsivo */
+
+}
+
+p{
+  text-align: left; 
+  font-weight: 300;
+  font-size: 16px; /* Tamaño del texto responsivo */
+  padding: 8px;
+  line-height: 32px;
+  letter-spacing: 2px;
+}
+
+
+.card:hover {
+  box-shadow: 0 4px 8px var(--gris); /* Sombra suave */
+  transform: scale(1.05);
+
+}
+
+
+</style>
+

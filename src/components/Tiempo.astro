@@ -1,0 +1,109 @@
+---
+---
+<html>
+  <head>
+    <title>Weather Widget</title>
+  </head>
+  <body>
+    <style>
+        /* Estilo para el widget */
+        .container{
+            display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 60vh;
+        max-width: 100%;
+        align-content: center;
+        margin-left: 2px;
+        margin-right: 2px;
+
+        }
+        .weatherwidget-io {
+          display: block;
+          width: 100%; /* Asegurarse de que ocupe todo el ancho del contenedor */
+          max-width: 400px; /* Tamaño máximo */
+          
+          padding: 24px; /* Espacio interno */
+          border-radius: 8px; /* Bordes redondeados (opcional) */
+          background-color: #ffffff; /* Color de fondo (opcional) */
+          box-shadow: 0 4px 8px var(--base); /* Sombra suave */
+        }
+  
+        /* Al pasar el cursor, aumentar la sombra */
+        .weatherwidget-io:hover {
+            box-shadow: 0 4px 8px var(--gris); /* Sombra suave */
+        }
+        .datos-utiles{
+
+            height: 40vh;
+            width: 100%;
+            max-width: 60VW;
+            padding: 24px;
+            font-size: 24px; /* Tamaño del texto responsivo */
+            align-content: center;
+            font-family: "roboto", sans-serif;
+            letter-spacing: 2px;
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--primario);
+            
+        }
+
+        p{
+          font-weight: 300;
+          font-size: 16px;
+            
+            color: var(--primario);
+            line-height: 32px;
+            margin-top: 16px;
+
+        }
+
+        @media (max-width: 768px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    .datos-utiles{
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      max-width: 100%;
+      margin-top: 4vh;
+    }
+
+    .p{
+      width: 100vw;
+    }
+  }
+    
+  
+      </style>
+
+    <!-- Contenedor donde aparecerá el widget -->
+     <div class="container">
+        <a class="weatherwidget-io" href="https://forecast7.com/es/n38d89n60d35/reta/" data-label_1="RETA" data-label_2="WEATHER" data-theme="original" data-basecolor="#ffffff" data-textcolor="#000000" >Tiempo en Reta</a>
+            <div class="datos-utiles">
+        <h2>Datos útiles</h2>
+        <p>Cuando visites Reta, recordá que este tranquilo paraíso no cuenta con entidades bancarias, cajeros automáticos ni estaciones de servicio. La estación de servicio más cercana se encuentra en Tres Arroyos, a unos 50 km. Además del efectivo, cuentan con sistemas de pago alternativos. <br>
+        Preparate para disfrutar de la desconexión total en este hermoso destino natural</p>
+    </div>
+</div>
+    <!-- Incluir el script con el widget -->
+    <script is:inline>
+      !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+          js=d.createElement(s);
+          js.id=id;
+          js.src='https://weatherwidget.io/js/widget.min.js';
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }(document,'script','weatherwidget-io-js');
+    </script>
+  </body>
+</html>
+
+

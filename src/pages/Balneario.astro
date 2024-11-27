@@ -1,0 +1,166 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import instagramicon from "../assets/instagramicon.svg";
+import rakos1 from "../assets/rakos1.jpg";
+import walter1 from "../assets/walter1.jpg";
+import Lapausa2 from "../assets/Lapausa2.png";
+import logoreta4 from '../assets/logoreta4.png';
+
+
+const squares = [
+  {
+    title: 'La Pausa',
+    image: Lapausa2,
+    instagram: 'https://www.instagram.com/lapausa_paradordemar',
+    body: 'Calle 48 (Principal) y el mar',
+  },
+  {
+    title: 'Walter´s',
+    image: walter1,  // Usando la variable importada
+    instagram: 'https://www.facebook.com/profile.php?id=100049404165643&locale=es_LA',
+    body:'Calle 50 y el mar',
+  },
+  {
+    title: 'Rakos',
+    image: rakos1,  // Usando la variable importada
+    instagram: 'https://www.instagram.com/rakosparador/',
+    body:'Calle 58 y el mar',
+  }
+];
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href={logoreta4.src} />
+
+    <title>Balneario</title>
+    <style>
+        /* Estilos básicos */
+        * {
+          font-family: "roboto", sans-serif;
+            color: var(--primario);
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100%;
+        }
+
+        main {
+    width: 100vw;
+    min-height: 70vh; /* Se asegura de que el contenido ocupe al menos la altura de la ventana */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    padding: 8px;
+}
+
+
+        /* Sección de cuadrados */
+        .squares {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8vw;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+        .square {
+          width: 100%;
+          max-width: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 8px var(--base); /* Sombra suave */
+  transition: transform 0.3s ease;        }
+
+        .square:hover {
+            transform: scale(1.05);
+        }
+
+        .square img {
+          height: 300px; /* Ajusta la altura según tu diseño */
+  width: 100%;
+  border-radius: 8px;
+  max-width: 400px; /* Ajusta el ancho máximo de la imagen */
+  object-fit: cover; /* La imagen cubre todo el contenedor */
+  object-position: center;        }
+
+        h2 {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 8px;
+          text-align: left; 
+          font-weight: 300;
+          font-size: 32px; /* Tamaño del texto responsivo */
+          letter-spacing: 2px;
+          line-height: 1.5;
+        }
+
+        p{
+          
+          text-align: left; 
+    font-weight: 300;
+    font-size: 16px; /* Tamaño del texto responsivo */
+  padding: 8px;
+  letter-spacing: 2px;
+  line-height: 1.5;
+                  }
+
+
+        .square a img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 600px) {
+            .squares {
+                grid-template-columns: 1fr;
+            }
+
+            .square img {
+                height: 150px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .squares {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .squares {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <Layout title="Balneario">
+        <main>
+            <!-- Sección de cuadrados con fotos, títulos y enlaces de Instagram -->
+            <div class="container squares">
+                {squares.map((square) => (
+                    <div class="square">
+                        <img src={square.image.src} alt={square.title} />  <!-- Usando la propiedad .src de la imagen importada -->
+                        <h2>{square.title} <a href={square.instagram} target="_blank" rel="noopener noreferrer">
+                            <img src={instagramicon.src} alt="Instagram Logo" />  <!-- Usando la variable importada para el logo de Instagram -->
+                        </a></h2>
+                        <p>{square.body} </p>
+                        
+                    </div>
+                ))}
+            </div>
+        </main>
+    </Layout>    
+</body>
+</html>
