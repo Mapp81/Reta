@@ -18,3 +18,6 @@ Este proyecto es un sitio web diseñado con Astro para mostrar las playas y las 
 
 
 Built by Mapp81Dev 🚀 | Promoviendo el turismo en Reta 🌊
+
+
+

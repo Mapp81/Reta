@@ -1,11 +1,11 @@
 ---
 import {Image} from "astro:assets";
-
+import mapagif from "../assets/mapagif.gif"
 ---
 
 <div class="container">
     <div class="frase">
-        <h2>¿Cómo llegar?</h2>
+        <h2>¿Cómo llegar? <Image src={mapagif} alt="Mapita" class= "w-24"></h2>
         <p>Ubicada en la costa de la provincia de Buenos Aires, Reta es un tranquilo balneario que combina la serenidad de un destino poco explorado con la belleza de la naturaleza en su estado más puro. A solo 80 kilómetros de Tres Arroyos, este rincón escondido es perfecto para aquellos que buscan playas amplias, atardeceres inolvidables, y un espacio donde el tiempo parece detenerse.</p>
         <a href="../Ubicacion">Mas...</a>
     </div>
@@ -38,6 +38,8 @@ import {Image} from "astro:assets";
         line-height: 1.5;
         height: 60vh;
         color: var(--primario);
+        margin-left: 2px;
+        margin-right: 2px;
     } 
 
     p{
@@ -46,6 +48,8 @@ import {Image} from "astro:assets";
         line-height: 32px;
         margin-top: 16px;
         margin-bottom: 24px;
+        margin-left: 2px;
+        margin-right: 2px;
     }
 
     .frame{
@@ -54,7 +58,8 @@ import {Image} from "astro:assets";
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 4px 8px var(--base); /* Sombra suave */
-        padding: 2px;
+        margin-left: 2px;
+        margin-right: 2px;
        border-radius: 8px;
     }
 
@@ -98,7 +103,7 @@ import {Image} from "astro:assets";
        
     }  
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
         .container{
             display: flex;
             flex-direction: column;
@@ -108,14 +113,77 @@ import {Image} from "astro:assets";
 
         .frase{
             font-size: 16px;
-            width: 100%;
-            overflow: scroll;
+            display: flex;
+        flex-direction: column;
+         height: auto;
+        width: 100%;
+        margin-top: 4vh;
+        margin-bottom: 4vh;
             
         }
 
+        .frase p{
+            margin-left: 4vw;
+            margin-right: 4vw;
+        }
         h2{
             font-size: 24px;
+            margin-left: 4vw;
+            margin-right: 4vw;
         }
+
+        a{
+            max-width: 30vw;
+            margin-left: 4vw;
+            margin-right: 4vw;
+        }
+
+    }
+
+    @media (min-width: 601px) and (max-width: 1024px){
+        
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: auto;
+           max-width: 100vw;
+        }
+        .frase{
+            font-size: 16px;
+            display: flex;
+        flex-direction: column;
+         max-height: 100vh;
+         max-width: 90vw;
+        margin-top: 4vh;
+        margin-bottom: 4vh;
+            
+        }
+        h2{
+            font-size: 24px;
+            margin-left: 4vw;
+            margin-right: 4vw;
+        }
+
+        a{
+            max-width: 15vw;
+            margin-left: 4vw;
+            margin-right: 4vw;
+        }
+
+    }
+
+    @media (min-width: 1025px){
+        .container{
+            display: flex;
+            flex-direction: row;
+            height: auto;
+           
+        }
+
 
     }
 </style>

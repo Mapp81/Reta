@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import datosutiles from "../assets/datosutiles.gif";
 ---
 <html>
   <head>
@@ -60,7 +62,8 @@
 
         }
 
-        @media (max-width: 768px) {
+@media (max-width: 600px) {
+
     .container{
         display: flex;
         flex-direction: column;
@@ -78,15 +81,44 @@
       width: 100vw;
     }
   }
-    
-  
+
+  @media (min-width: 601px) and (max-width: 1024px){
+  .container{
+            display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        align-items: center;
+        max-height: 100vh;
+        max-width: 100vw;
+        align-content: center;
+        margin-left: 2px;
+        margin-right: 2px;
+        
+        }
+        .datos-utiles{
+
+max-height: 100vh;
+max-width: 80VW;
+padding: 24px;
+font-size: 24px; /* Tamaño del texto responsivo */
+align-content: center;
+font-family: "roboto", sans-serif;
+letter-spacing: 2px;
+font-weight: 300;
+line-height: 1.5;
+color: var(--primario);
+}
+
+
+      }
       </style>
 
     <!-- Contenedor donde aparecerá el widget -->
      <div class="container">
         <a class="weatherwidget-io" href="https://forecast7.com/es/n38d89n60d35/reta/" data-label_1="RETA" data-label_2="WEATHER" data-theme="original" data-basecolor="#ffffff" data-textcolor="#000000" >Tiempo en Reta</a>
             <div class="datos-utiles">
-        <h2>Datos útiles</h2>
+        <h2>Datos útiles <Image src={datosutiles} alt="Datos Utiles" class= "w-24"></Image></h2>
         <p>Cuando visites Reta, recordá que este tranquilo paraíso no cuenta con entidades bancarias, cajeros automáticos ni estaciones de servicio. La estación de servicio más cercana se encuentra en Tres Arroyos, a unos 50 km. Además del efectivo, cuentan con sistemas de pago alternativos. <br>
         Preparate para disfrutar de la desconexión total en este hermoso destino natural</p>
     </div>
